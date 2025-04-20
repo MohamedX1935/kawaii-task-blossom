@@ -29,16 +29,20 @@ const EditProfileForm = () => {
   };
 
   return (
-    <form onSubmit={handleSaveChanges} className="space-y-6">
+    <form onSubmit={handleSaveChanges} className="space-y-4 sm:space-y-6">
       <div className="space-y-2">
         <label className="text-sm font-medium">Display Name</label>
-        <Input placeholder="Enter your name" defaultValue="Imane" />
+        <Input 
+          placeholder="Enter your name" 
+          defaultValue="Imane"
+          className="w-full max-w-sm" 
+        />
       </div>
       
-      <div className="flex items-center justify-between py-4 border-b">
+      <div className="flex items-center justify-between py-3 border-b">
         <div className="flex items-center gap-2">
           <Bell className="w-4 h-4" />
-          <span>Notifications</span>
+          <span className="text-sm sm:text-base">Notifications</span>
         </div>
         <Switch 
           checked={notifications} 
@@ -46,10 +50,10 @@ const EditProfileForm = () => {
         />
       </div>
 
-      <div className="flex items-center justify-between py-4 border-b">
+      <div className="flex items-center justify-between py-3 border-b">
         <div className="flex items-center gap-2">
           <Moon className="w-4 h-4" />
-          <span>Dark Mode</span>
+          <span className="text-sm sm:text-base">Dark Mode</span>
         </div>
         <Switch 
           checked={isDarkMode} 
@@ -57,7 +61,7 @@ const EditProfileForm = () => {
         />
       </div>
 
-      <Button type="submit" className="w-full">
+      <Button type="submit" className="w-full sm:w-auto">
         Save Changes
       </Button>
     </form>

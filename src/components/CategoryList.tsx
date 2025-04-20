@@ -11,6 +11,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogFooter,
+  DialogDescription,
 } from "@/components/ui/dialog";
 import {
   Form,
@@ -33,6 +34,7 @@ import {
 } from "@/components/ui/select";
 import { cn } from '@/lib/utils';
 
+// Fix the form schema to make all fields required
 const formSchema = z.object({
   name: z.string().min(1, "Category name is required").max(30),
   color: z.string().min(1, "Color is required"),
@@ -98,6 +100,9 @@ const CategoryDialog: React.FC<CategoryDialogProps> = ({
           <DialogTitle className="text-xl font-comfortaa">
             {category ? "Edit Category" : "Add Category"}
           </DialogTitle>
+          <DialogDescription>
+            {category ? "Update your category details below." : "Create a new category to organize your tasks."}
+          </DialogDescription>
         </DialogHeader>
 
         <Form {...form}>

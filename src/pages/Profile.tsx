@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useTaskContext } from '@/context/TaskContext';
 import { Button } from '@/components/ui/button';
@@ -34,43 +33,9 @@ const ProfilePage = () => {
         <h1 className="text-2xl font-bold font-comfortaa text-primary-foreground">My Profile</h1>
       </div>
       
-      <div className="bg-white rounded-lg p-6 shadow-sm border border-kawaii-pink/20">
-        <div className="flex flex-col sm:flex-row gap-6 items-center sm:items-start">
-          <div className="relative">
-            <Avatar className="h-20 w-20 bg-kawaii-lavender text-white">
-              <User className="h-10 w-10" />
-            </Avatar>
-            <div className="absolute -bottom-2 -right-2">
-              <KawaiiMascot mood="excited" className="w-12 h-12" />
-            </div>
-          </div>
-          
-          <div className="flex-1 text-center sm:text-left">
-            <h2 className="text-xl font-semibold">{user.name}</h2>
-            <p className="text-muted-foreground text-sm">Member since {user.joinedDate}</p>
-            
-            <div className="mt-4 space-y-1">
-              <div className="flex items-center gap-2 text-sm">
-                <CheckCircle className="h-4 w-4 text-kawaii-mint" />
-                <span>{stats.completed} tasks completed</span>
-              </div>
-              <div className="flex items-center gap-2 text-sm">
-                <Calendar className="h-4 w-4 text-kawaii-blue" />
-                <span>{stats.active} active tasks</span>
-              </div>
-              <div className="flex items-center gap-2 text-sm">
-                <Star className="h-4 w-4 text-amber-500" />
-                <span>{stats.highPriority} high priority tasks</span>
-              </div>
-            </div>
-            
-            <div className="mt-6">
-              <Button className="bg-kawaii-pink hover:bg-kawaii-pink/90 text-primary-foreground">
-                Edit Profile
-              </Button>
-            </div>
-          </div>
-        </div>
+      <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm border border-kawaii-pink/20">
+        <h2 className="text-lg font-medium mb-6">Edit Profile</h2>
+        <EditProfileForm />
       </div>
       
       <div className="bg-white rounded-lg p-6 shadow-sm border border-kawaii-pink/20">

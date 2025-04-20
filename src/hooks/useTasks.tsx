@@ -11,7 +11,7 @@ import {
   stopAutoBackup
 } from '@/lib/taskStorage';
 import { toast } from "@/components/ui/use-toast";
-import { useToast as useSonnerToast } from "@/components/ui/sonner";
+import { toast as sonnerToast } from "@/components/ui/sonner";
 
 export function useTasks() {
   const [tasks, setTasks] = useState<Task[]>([]);
@@ -21,7 +21,6 @@ export function useTasks() {
     sortBy: 'createdAt',
     sortDirection: 'desc'
   });
-  const { toast: sonnerToast } = useSonnerToast();
 
   // Load tasks on mount
   useEffect(() => {
@@ -117,7 +116,7 @@ export function useTasks() {
       });
       return null;
     }
-  }, [sonnerToast]);
+  }, []);
 
   // Update a task
   const updateTask = useCallback((taskId: string, updates: Partial<Task>) => {
@@ -158,7 +157,7 @@ export function useTasks() {
       });
       return false;
     }
-  }, [sonnerToast]);
+  }, []);
 
   // Toggle task completion
   const toggleTaskCompletion = useCallback((taskId: string) => {
@@ -201,7 +200,7 @@ export function useTasks() {
       });
       return false;
     }
-  }, [tasks, addTask, sonnerToast]);
+  }, [tasks, addTask]);
 
   // Update filter
   const updateFilter = useCallback((newFilter: Partial<TaskFilter>) => {

@@ -8,12 +8,11 @@ import {
   generateId
 } from '@/lib/taskStorage';
 import { toast } from "@/components/ui/use-toast";
-import { useToast as useSonnerToast } from "@/components/ui/sonner";
+import { toast as sonnerToast } from "@/components/ui/sonner";
 
 export function useCategories() {
   const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState(true);
-  const { toast: sonnerToast } = useSonnerToast();
 
   // Load categories on mount
   useEffect(() => {
@@ -52,7 +51,7 @@ export function useCategories() {
       });
       return null;
     }
-  }, [sonnerToast]);
+  }, []);
 
   // Update a category
   const updateCategory = useCallback((categoryId: string, updates: Partial<Category>) => {
@@ -89,7 +88,7 @@ export function useCategories() {
       });
       return false;
     }
-  }, [categories, sonnerToast]);
+  }, [categories]);
 
   // Delete a category
   const deleteCategory = useCallback((categoryId: string) => {
@@ -123,7 +122,7 @@ export function useCategories() {
       });
       return false;
     }
-  }, [categories, sonnerToast]);
+  }, [categories]);
 
   // Get a category by ID
   const getCategoryById = useCallback((categoryId: string | undefined) => {

@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useTaskContext } from '@/context/TaskContext';
 import { Category } from '@/lib/types';
@@ -40,6 +41,7 @@ const formSchema = z.object({
   icon: z.string().min(1, "Icon is required"),
 });
 
+// This ensures FormValues exactly matches the required structure of Omit<Category, "id">
 type FormValues = z.infer<typeof formSchema>;
 
 interface CategoryDialogProps {
@@ -65,6 +67,7 @@ const CategoryDialog: React.FC<CategoryDialogProps> = ({
   });
 
   const handleSubmit = (values: FormValues) => {
+    // We can now safely pass values directly since FormValues matches Omit<Category, "id">
     onSubmit(values);
     onClose();
   };

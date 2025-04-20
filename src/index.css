@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Nunito:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -13,17 +16,17 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 346 100% 91%;
+    --primary-foreground: 346 50% 40%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 240 67% 94%;
+    --secondary-foreground: 240 30% 40%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 143 45% 84%;
+    --accent-foreground: 143 40% 30%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
@@ -32,22 +35,15 @@
     --input: 214.3 31.8% 91.4%;
     --ring: 222.2 84% 4.9%;
 
-    --radius: 0.5rem;
+    --radius: 1rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -61,8 +57,8 @@
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 345 70% 80%;
+    --primary-foreground: 346 50% 25%;
 
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
@@ -79,14 +75,6 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
 
@@ -96,6 +84,43 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-comfortaa;
+  }
+}
+
+@layer components {
+  .kawaii-checkbox {
+    @apply relative w-6 h-6 appearance-none cursor-pointer 
+           transition-all duration-200 ease-in-out 
+           before:content-[''] before:absolute before:w-full before:h-full
+           before:bg-white before:border-2 before:border-kawaii-pink before:rounded-md
+           before:transition-all before:duration-200 
+           checked:before:bg-kawaii-pink checked:before:border-kawaii.pink
+           checked:after:content-[''] checked:after:absolute checked:after:left-1/2
+           checked:after:top-1/2 checked:after:transform checked:after:-translate-x-1/2
+           checked:after:-translate-y-1/2 checked:after:w-3 checked:after:h-3;
+  }
+
+  .kawaii-card {
+    @apply bg-white rounded-2xl p-4 shadow-md transition-all duration-300
+           hover:shadow-lg border border-kawaii-pink/20;
+  }
+
+  .heart-checkbox {
+    @apply relative w-6 h-6 appearance-none cursor-pointer;
+  }
+  
+  .heart-checkbox::before {
+    content: '♡';
+    @apply absolute inset-0 flex items-center justify-center text-kawaii-pink text-xl transition-all duration-200;
+  }
+  
+  .heart-checkbox:checked::before {
+    content: '♥';
+    @apply text-kawaii-pink;
   }
 }

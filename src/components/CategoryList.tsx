@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useTaskContext } from '@/context/TaskContext';
 import { Category } from '@/lib/types';
@@ -34,7 +33,7 @@ import {
 } from "@/components/ui/select";
 import { cn } from '@/lib/utils';
 
-// Fix the form schema to make all fields required
+// Define form schema with required fields to match Omit<Category, "id">
 const formSchema = z.object({
   name: z.string().min(1, "Category name is required").max(30),
   color: z.string().min(1, "Color is required"),

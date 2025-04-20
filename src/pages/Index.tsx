@@ -7,6 +7,8 @@ import TaskForm from '@/components/TaskForm';
 import CategoryList from '@/components/CategoryList';
 import NavigationBar from '@/components/NavigationBar';
 import KawaiiMascot from '@/components/KawaiiMascot';
+import CalendarPage from '@/pages/Calendar';
+import ProfilePage from '@/pages/Profile';
 import { Task } from '@/lib/types';
 
 // Main content of the app
@@ -50,21 +52,11 @@ const MainContent = () => {
           )}
           
           {activeTab === 'calendar' && (
-            <div className="flex flex-col items-center justify-center h-[60vh]">
-              <KawaiiMascot mood="excited" />
-              <p className="text-muted-foreground mt-4 text-center">
-                Calendar view coming soon!
-              </p>
-            </div>
+            <CalendarPage />
           )}
           
           {activeTab === 'profile' && (
-            <div className="flex flex-col items-center justify-center h-[60vh]">
-              <KawaiiMascot mood="excited" />
-              <p className="text-muted-foreground mt-4 text-center">
-                Profile features coming soon!
-              </p>
-            </div>
+            <ProfilePage />
           )}
         </div>
       </div>

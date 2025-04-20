@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useTaskContext } from '@/context/TaskContext';
 import { Button } from '@/components/ui/button';
@@ -5,6 +6,7 @@ import { Slider } from '@/components/ui/slider';
 import { Avatar } from '@/components/ui/avatar';
 import { User, Calendar, CheckCircle, Star, BarChart } from 'lucide-react';
 import KawaiiMascot from '@/components/KawaiiMascot';
+import EditProfileForm from '@/components/EditProfileForm';
 
 const ProfilePage = () => {
   const { getStats } = useTaskContext();
@@ -38,7 +40,7 @@ const ProfilePage = () => {
         <EditProfileForm />
       </div>
       
-      <div className="bg-white rounded-lg p-6 shadow-sm border border-kawaii-pink/20">
+      <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm border border-kawaii-pink/20">
         <h2 className="text-lg font-medium mb-4 flex items-center gap-2">
           <BarChart className="h-5 w-5 text-kawaii-pink" />
           Task Statistics
@@ -80,7 +82,7 @@ const ProfilePage = () => {
         </div>
       </div>
       
-      <div className="bg-white rounded-lg p-6 shadow-sm border border-kawaii-pink/20">
+      <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-sm border border-kawaii-pink/20">
         <h2 className="text-lg font-medium mb-4">App Settings</h2>
         
         <div className="space-y-4">

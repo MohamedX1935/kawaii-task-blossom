@@ -64,11 +64,18 @@ const CategoryDialog: React.FC<CategoryDialogProps> = ({
       color: category?.color || "kawaii-pink",
       icon: category?.icon || "heart",
     },
+    // This ensures the form values are validated on mount
+    mode: "onSubmit"
   });
 
   const handleSubmit = (values: FormValues) => {
-    // We can now safely pass values directly since FormValues matches Omit<Category, "id">
-    onSubmit(values);
+    // Explicitly cast values to ensure TypeScript recognizes it as Omit<Category, "id">
+    const categoryData: Omit<Category, "id"> = {
+      name: values.name,
+      color: values.color,
+      icon: values.icon,
+    };
+    onSubmit(categoryData);
     onClose();
   };
 
